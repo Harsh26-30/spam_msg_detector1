@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="bg-glow glow-one"></div>
+<div class="bg-glow glow-two"></div>
+
+<main class="card">
+    <header class="card-header">
+        <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z"/>
+                <path d="M9 12l2 2 4-4"/>
+            </svg>
+        </div>
+        <h1>Spam Detector</h1>
+        <p class="subtitle">Paste a message and our ML model will tell you if it's spam or ham.</p>
+    </header>
+
+    <form id="spamForm" autocomplete="off">
+        <label for="msg" class="label">Your message</label>
+        <textarea id="msg" rows="5" maxlength="1000" placeholder="e.g. Congratulations! You've won a free prize. Click here to claim..." required></textarea>
+
+        <div class="meta-row">
+            <div class="examples">
+                <span>Try:</span>
+                <button type="button" class="chip" data-example="Congratulations! You have won a FREE iPhone. Click this link now to claim your prize!">Spam example</button>
+                <button type="button" class="chip" data-example="Hey, are we still meeting for lunch tomorrow at 1pm?">Ham example</button>
+            </div>
+            <span class="counter"><span id="count">0</span>/1000</span>
+        </div>
+
+        <button type="submit" id="detectBtn" class="btn">
+            <span class="btn-text">Detect</span>
+            <span class="spinner" aria-hidden="true"></span>
+        </button>
+    </form>
+
+    <div id="resultBox" class="result-box" aria-live="polite">
+        <div id="resultIcon" class="result-icon">?</div>
+        <p id="result">Prediction will appear here.</p>
+    </div>
+
+    <footer class="card-footer">Powered by a Python ML model</footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    console.log("Axios status:", typeof axios);
+</script>
+
+<script src="index.js"></script>
+</body>
+</html>
